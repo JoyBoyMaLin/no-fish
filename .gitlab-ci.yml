@@ -25,6 +25,7 @@ build:
   image: docker:stable
   stage: build
   script:
+    - echo "docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY_ADDR"
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY_ADDR
     - docker pull $TARGET_IMAGE_LATEST || true   # for docker build caching
     - docker build --cache-from $TARGET_IMAGE_LATEST --tag $TARGET_IMAGE_LATEST .
