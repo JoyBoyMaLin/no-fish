@@ -1,0 +1,52 @@
+version: '3'
+
+volumes:
+  redis: {}
+  db_data: {}
+
+services:
+  api: &api
+    image: fish:latest
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./fish:/fish
+    env_file:
+      - .env
+    command:
+      - /start_dev.sh
+  worker:
+    <<: *api
+    command:
+      - /celery_worker.sh
+    ports: []
+
+  beat:
+    <<: *api
+    command:
+      - /celery_beat.sh
+    ports: []
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - redis:/data
+    ports:
+      - "6379:6379"
+  db:
+    image: mysql:5
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=insecure_password
+      - MYSQL_DATABASE=fish_production
+    ports:
+      - "3306:3306"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES UTF8MB4;' --sql-mode="NO_ENGINE_SUBSTITUTION" --innodb-flush-log-at-trx-commit=0
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:latest
+    ports:
+      - "5672:5672"
+      - "15672:15672"

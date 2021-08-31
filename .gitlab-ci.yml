@@ -37,6 +37,8 @@ docker-build:
       fi
     - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
+    - docker image tag "$CI_REGISTRY_IMAGE${tag}" "$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA}"
+    - docker push "$CI_REGISTRY_IMAGE:${CI_COMMIT_SHA}"
   # Run this job in a branch where a Dockerfile exists
   rules:
     - if: $CI_COMMIT_BRANCH
