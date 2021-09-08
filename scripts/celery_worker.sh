@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cd /contract-proxy || exit
+cd /fish || exit
 
 celery -A config worker --loglevel=info

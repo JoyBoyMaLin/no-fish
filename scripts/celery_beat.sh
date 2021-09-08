@@ -1,3 +1,3 @@
 #!/bin/sh
 
-celery -A config beat --loglevel=info --pidfile=/contract-proxy/celerybeat.pid
+celery -A config beat --loglevel=info --pidfile=/fish/celerybeat.pid

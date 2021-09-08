@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-07 05:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: account/admin.py:14
+msgid "User Information"
+msgstr "用户信息"
+
+#: account/admin.py:16
+msgid "Permissions"
+msgstr ""
+
+#: account/apps.py:8
+msgid "Account"
+msgstr "用户管理"
+
+#: account/models.py:15
+msgid "email address"
+msgstr ""
+
+#: account/models.py:16
+msgid "first name"
+msgstr ""
+
+#: account/models.py:17
+msgid "last name"
+msgstr ""
+
+#: account/models.py:18
+msgid "date of birth"
+msgstr "生日"
+
+#: account/models.py:19
+msgid "full name"
+msgstr "姓名"
+
+#: account/models.py:20
+msgid "mobile"
+msgstr "手机"
+
+#: account/models.py:21
+msgid "date joined"
+msgstr ""
+
+#: account/models.py:23
+msgid "staff status"
+msgstr ""
+
+#: account/models.py:25
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: account/models.py:28
+msgid "active"
+msgstr ""
+
+#: account/models.py:31
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: account/models.py:35
+msgid "avatar"
+msgstr "头像"
+
+#: account/models.py:43
+msgid "user"
+msgstr ""
+
+#: account/models.py:44
+msgid "users"
+msgstr ""
+
+#: app/models.py:10
+msgid "category"
+msgstr "商品分类"
+
+#: app/models.py:11
+msgid "categories"
+msgstr "商品分类"
+
+#: app/models.py:13 app/models.py:36 app/models.py:51 app/models.py:66
+msgid "title"
+msgstr "标题"
+
+#: app/models.py:14 app/models.py:25 app/models.py:37
+msgid "cover"
+msgstr "封面"
+
+#: app/models.py:15 app/models.py:39 app/models.py:54
+msgid "enabled"
+msgstr "显示"
+
+#: app/models.py:17
+msgid "created"
+msgstr "创建时间"
+
+#: app/models.py:33
+msgid "photo"
+msgstr "图片"
+
+#: app/models.py:34
+msgid "photos"
+msgstr "图集"
+
+#: app/models.py:38
+msgid "show home"
+msgstr "主页显示"
+
+#: app/models.py:48
+msgid "slider"
+msgstr "首页轮播"
+
+#: app/models.py:49
+msgid "sliders"
+msgstr "首页轮播"
+
+#: app/models.py:52
+msgid "image"
+msgstr "图片"
+
+#: app/models.py:53
+msgid "url"
+msgstr "链接"
+
+#: app/models.py:62
+msgid "detail"
+msgstr "细节图"
+
+#: app/models.py:63
+msgid "details"
+msgstr "细节图集"
+
+#: app/models.py:67
+msgid "content"
+msgstr "内容"
+
+#: app/views.py:27
+msgid "all category"
+msgstr "所有分类"

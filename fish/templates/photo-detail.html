@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}详情{% endblock %}
+{% block content %}
+    <div class="basic-breadcrumb-area gray-bg ptb-70">
+        <div class="container">
+            <div class="basic-breadcrumb text-center">
+                <h3 class="">{{ title }}</h3>
+                <ol class="breadcrumb text-xs">
+                    <p id="hitokoto"></p>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="basic-portfolio-area ptb-90">
+        <div class="container">
+
+            <div id="portfolio-grid" class="row-portfolio portfolio-style-2 portfolio-style-3">
+                {% for detail in photo_details %}
+                    <div class="portfolio-item">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-thumb">
+                                <img src="{{ detail.image }}" alt="">
+                                <div class="view-icon">
+                                    <a class="popup-link" href="{{ detail.image }}"><span
+                                            class="icon-focus"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <nav>
+                <ul class="pagination">
+
+                    {% if photo_details.has_previous %}
+                        <li><a href="?page={{ photo_details.previous_page_number }}&photo_id={{ photo_id }}"
+                               aria-label="Previous"><i
+                                class="ion-ios-arrow-back"></i></a></li>
+                    {% endif %}
+                    {% for pg in photo_details.paginator.page_range %}
+                        <li {% if pg == photo_details.number %} class="active" {% endif %}>
+                            <a href="?page={{ pg }}&photo_id={{ photo_id }}">{{ pg }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if photo_details.has_next %}
+                        <li>
+                            <a href="?page={{ photo_details.next_page_number }}&photo_id={{ photo_id }}"
+                               aria-label="Next"><i
+                                    class="ion-ios-arrow-forward"></i></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+{% block scripts %}
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+{% endblock %}
+{% block footer %}
+    <div class="gray-bg">
+        {% include "footer.html" %}
+    </div>
+{% endblock %}

@@ -983,7 +983,7 @@ var pJS = function (tag_id, params) {
                 }
 
                 // bang - slow motion mode
-                // if(!pJS.tmp.repulse_finish){
+                // if(!pJS.temp.repulse_finish){
                 //   if(d <= repulseRadius){
                 //     process();
                 //   }

@@ -15,8 +15,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(_('first name'), max_length=30, blank=True)
     last_name = models.CharField(_('last name'), max_length=30, blank=True)
-    date_of_birth = models.DateField(default=timezone.now)
-    name = models.CharField(_('name'), null=True, blank=True, max_length=30)
+    date_of_birth = models.DateField(_('date of birth'), default=timezone.now)
+    full_name = models.CharField(_('full name'), null=True, blank=True, max_length=30)
     phone_number = PhoneNumberField(_('mobile'), null=True, region='CN')
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
     is_staff = models.BooleanField(
@@ -32,7 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             'Unselect this instead of deleting accounts.'
         ),
     )
-    avatar = models.ImageField(upload_to='static/uploads/images/avatars/', null=True, blank=True)
+    avatar = models.ImageField(_('avatar'), upload_to='static/uploads/images/avatars/', null=True, blank=True)
 
     objects = UserManager()
 

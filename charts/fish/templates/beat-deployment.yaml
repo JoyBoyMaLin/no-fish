@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}-celery-beat
+  labels:
+{{ include "labels.standard" . | indent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "name" . }}-celery-beat
+      release: {{ .Release.Name }}
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: {{ template "name" . }}-celery-beat
+        release: {{ .Release.Name }}
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: {{ template "name" . }}
+                  release: {{ .Release.Name | quote }}
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      containers:
+      - name: {{ .Chart.Name }}-celery-beat
+        image: {{ template "image" . }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command:
+          - sh
+          - -exc
+          - /celery_beat.sh
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+        env:
+{{ include "contract_proxy.env" . | indent 8 }}
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+      securityContext:
+        fsGroup: 101
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
+{{- if .Values.image.pullSecret }}
+  imagePullSecrets:
+    - name: {{ .Values.image.pullSecret }}
+{{- end }}
