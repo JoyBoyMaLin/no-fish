@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import time
 
 import environ
 from pathlib import Path
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = env.list('FISH_ALLOWED_HOST', default=[])
 # Application definition
 
 INSTALLED_APPS = [
+    'nested_inline',
     'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,6 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 LANGUAGE_CODE = 'zh-hans'
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 TIME_ZONE = 'UTC'
 
@@ -148,3 +153,43 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'dashboard_login'
 
 AUTH_USER_MODEL = 'account.User'
+SIMPLEUI_CONFIG = {
+    'system_keep': False,
+    'menu_display': ['网站管理', '用户管理'],  # 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.
+    'dynamic': True,  # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时动态展示菜单内容
+    'menus': [
+        {
+            'app': 'app',
+            'name': '网站管理',
+            'icon': 'fas fa-user-shield',
+            'models': [{
+                'name': '商品分类',
+                'icon': 'fa fa-user',
+                'url': '/admin/app/category/'
+            }, {
+                'name': '图片管理',
+                'icon': 'fas fa-user-cog',
+                'url': '/admin/app/photo/'
+            }]
+        }, {
+            'app': 'account',
+            'name': '用户管理',
+            'icon': 'fas fa-user-shield',
+            'models': [{
+                'name': '用户',
+                'icon': 'fa fa-user',
+                'url': '/admin/account/user/'
+            }, {
+                'name': '权限组',
+                'icon': 'fas fa-user-cog',
+                'url': '/admin/auth/group/'
+            }]
+
+        }
+    ]
+}
+SIMPLEUI_HOME_INFO = False
+SIMPLEUI_HOME_ICON = 'fa fa-user'
+SIMPLEUI_INDEX = 'https://www.hundunlin.com'
+SIMPLEUI_STATIC_OFFLINE = True
+SIMPLEUI_LOADING = False

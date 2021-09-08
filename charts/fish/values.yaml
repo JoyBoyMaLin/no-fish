@@ -1,0 +1,26 @@
+replicaCount: 1
+workerReplicaCount: 1
+
+image:
+  repository: gcr.io/oceanex-stage/ocean-contract-proxy
+  tag: master
+  pullPolicy: Always
+service:
+  name: ocean-contract-proxy
+  type: ClusterIP
+  externalPort: 8000
+  internalPort: 8000
+ingress:
+  enabled: true
+  host: contract.thorex.me
+  path: /
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "flase"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+  tls:
+    - secretName: changeme
+      hosts:
+        - contract.thorex.me
+resources: {}
+stat: {}

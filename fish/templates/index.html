@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{#{% block slider %}#}
+{#    <div class="gray-bg">#}
+{#        {% include "slider.html" %}#}
+{#    </div>#}
+{#{% endblock %}#}
+{% block content %}
+
+    <!-- basic-blog-area -->
+    <div class="basic-blo-area gray-bg pt-90 pb-30">
+        <div class="container">
+            <div class="area-title text-center">
+                <h2>热点商品</h2>
+                <p>你要尽全力保护你的梦想。那些嘲笑你梦想的人，他们注定失败，他们想把你变成和他们一样。我坚信，只要心中有梦想，我就会与众不同。你也是。</p>
+            </div>
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col-sm-6 col-md-4 blog-item">
+                        <!-- POST -->
+                        <a href="photo.html?category_id={{ category.id }}">
+                            <article class="post">
+                                <div class="post-thumbnail">
+                                    <img src="{{ category.cover }}" alt=""
+                                         href="photo.html?category_id={{ category.id }}">
+                                </div>
+                            </article>
+                        </a>
+                        <!-- /POST -->
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{#{% block footer %}#}
+{#    <div class="gray-bg">#}
+{#        {% include "footer.html" %}#}
+{#    </div>#}
+{#{% endblock %}#}

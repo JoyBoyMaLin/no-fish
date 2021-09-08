@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- All CSS Files Here -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/et-line-fonts.css">
+    <link rel="stylesheet" href="../../static/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../static/css/meanmenu.css">
+    <link rel="stylesheet" href="../../static/css/global.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel="stylesheet" href="../../static/css/responsive.css">
+    <script src="../../static/js/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<!-- PRELOADER -->
+<div class="page-loader">
+    <div class="loader">Loading...</div>
+</div>
+<!-- /PRELOADER -->
+<!-- header start -->
+{% block header %}
+    {% include "header.html" %}
+{% endblock %}
+<!-- header end -->
+<!-- basic-slider start -->
+{% block slider %}
+{% endblock %}
+<!-- basic-slider end -->
+
+{% block content %}
+{% endblock %}
+
+<!-- footer start -->
+{% block footer %}
+    {% include "footer.html" %}
+{% endblock %}
+<!-- footer end -->
+
+
+<!-- All js plugins here -->
+{% block plugins %}
+    {% include "plugins.html" %}
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+</body>
+</html>

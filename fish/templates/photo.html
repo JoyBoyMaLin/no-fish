@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}分类{% endblock %}
+{% block content %}
+    <div class="basic-breadcrumb-area gray-bg ptb-70">
+        <div class="container">
+            <div class="basic-breadcrumb text-center">
+                <h3 class="">{{ category_title }}</h3>
+                <ol class="breadcrumb text-xs">
+                    <li><a href="photo.html">全部分类</a></li>
+                    {% for category in categories %}
+                        <li><a href="photo.html?category_id={{ category.id }}">{{ category.title }}</a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="basic-portfolio-area">
+        <div class="'container-fluid">
+            <div id="portfolio-grid" class="portfolio-style-2 portfolio-style-3 portfolio-grid-4 no-space">
+                {% for photo in photos %}
+                    <div class="portfolio-item">
+                        <div class="portfolio-wrapper">
+                            <div class="portfolio-thumb">
+                                <img src="{{ photo.cover }}" alt="">
+                                <div class="view-icon">
+                                    <a class="popup-link" href="{{ photo.cover }}"><span
+                                            class="icon-focus"></span></a>
+                                </div>
+                            </div>
+                            <div class="portfolio-caption text-center">
+                                <h4><a href="photo-detail.html?photo_id={{ photo.id }}">{{ photo.title }}</a></h4>
+                                <div class="work-tag">
+                                    <a href="photo-detail.html?photo_id={{ photo.id }}">查看更多...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="view-more mt-40 text-center">
+                <nav>
+                    <ul class="pagination">
+                        {% if photos.has_previous %}
+                            <li><a href="?page={{ photos.previous_page_number }}{% if category_id %}&category_id={{ category_id }}{% endif %}" aria-label="Previous"><i
+                                    class="ion-ios-arrow-back"></i></a></li>
+                        {% endif %}
+                        {% for pg in photos.paginator.page_range %}
+                            <li {% if pg == photos.number %} class="active" {% endif %}>
+                                <a href="?page={{ pg }}{% if category_id %}&category_id={{ category_id }}{% endif %}">{{ pg }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if photos.has_next %}
+                            <li>
+                                <a href="?page={{ photos.next_page_number }}{% if category_id %}&category_id={{ category_id }}{% endif %}" aria-label="Next"><i
+                                        class="ion-ios-arrow-forward"></i></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+{% endblock %}
+{% block footer %}
+    <div class="gray-bg">
+        {% include "footer.html" %}
+    </div>
+{% endblock %}
