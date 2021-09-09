@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-07 05:06+0000\n"
+"POT-Creation-Date: 2021-09-09 10:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,41 +88,43 @@ msgstr ""
 msgid "users"
 msgstr ""
 
-#: app/models.py:10
+#: app/forms.py:15
+#, fuzzy
+#| msgid "photos"
+msgid "Add photos"
+msgstr "图集"
+
+#: app/models.py:11
 msgid "category"
 msgstr "商品分类"
 
-#: app/models.py:11
+#: app/models.py:12
 msgid "categories"
 msgstr "商品分类"
 
-#: app/models.py:13 app/models.py:36 app/models.py:51 app/models.py:66
+#: app/models.py:14 app/models.py:37 app/models.py:51
 msgid "title"
 msgstr "标题"
 
-#: app/models.py:14 app/models.py:25 app/models.py:37
+#: app/models.py:15 app/models.py:26 app/models.py:38
 msgid "cover"
 msgstr "封面"
 
-#: app/models.py:15 app/models.py:39 app/models.py:54
+#: app/models.py:16 app/models.py:39 app/models.py:54
 msgid "enabled"
 msgstr "显示"
 
-#: app/models.py:17
+#: app/models.py:18
 msgid "created"
 msgstr "创建时间"
 
-#: app/models.py:33
+#: app/models.py:34
 msgid "photo"
 msgstr "图片"
 
-#: app/models.py:34
+#: app/models.py:35
 msgid "photos"
 msgstr "图集"
-
-#: app/models.py:38
-msgid "show home"
-msgstr "主页显示"
 
 #: app/models.py:48
 msgid "slider"
@@ -132,7 +134,7 @@ msgstr "首页轮播"
 msgid "sliders"
 msgstr "首页轮播"
 
-#: app/models.py:52
+#: app/models.py:52 app/models.py:66
 msgid "image"
 msgstr "图片"
 
@@ -148,10 +150,12 @@ msgstr "细节图"
 msgid "details"
 msgstr "细节图集"
 
-#: app/models.py:67
-msgid "content"
-msgstr "内容"
-
 #: app/views.py:27
 msgid "all category"
 msgstr "所有分类"
+
+#~ msgid "show home"
+#~ msgstr "主页显示"
+
+#~ msgid "content"
+#~ msgstr "内容"
