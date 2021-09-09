@@ -22,7 +22,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- printf "%s" .Release.Name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-{{- define "contract_proxy.env" -}}
+{{- define "fish.env" -}}
 {{- range $key, $value := .Values.app.vars }}
 - name: {{ $key }}
   value: {{ $value | quote }}

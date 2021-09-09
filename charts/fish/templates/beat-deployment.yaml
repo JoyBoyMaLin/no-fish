@@ -41,7 +41,7 @@ spec:
         ports:
         - containerPort: {{ .Values.service.internalPort }}
         env:
-{{ include "contract_proxy.env" . | indent 8 }}
+{{ include "fish.env" . | indent 8 }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
       securityContext:

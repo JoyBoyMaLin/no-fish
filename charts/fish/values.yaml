@@ -2,25 +2,26 @@ replicaCount: 1
 workerReplicaCount: 1
 
 image:
-  repository: gcr.io/oceanex-stage/ocean-contract-proxy
+  repository: registry.gitlab.com/jbml/no-fish
   tag: master
   pullPolicy: Always
 service:
-  name: ocean-contract-proxy
+  name: fish
   type: ClusterIP
   externalPort: 8000
   internalPort: 8000
 ingress:
-  enabled: true
-  host: contract.thorex.me
+  enabled: false
+  host: hundunlin.com
   path: /
+  pathType: Prefix
   annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "flase"
-    nginx.ingress.kubernetes.io/enable-cors: "true"
+    cert-manager.io/cluster-issuer: hundunlin-prod
   tls:
-    - secretName: changeme
+    - secretName: secret-fish-tls
       hosts:
-        - contract.thorex.me
-resources: {}
-stat: {}
+        - hundunlin.com
+        - www.hundunlin.com
+        - fish.hundunlin.com
+resources: { }
+stat: { }
