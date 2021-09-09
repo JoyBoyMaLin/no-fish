@@ -45,10 +45,3 @@
 #      exists:
 #        - Dockerfile
 #
-stages:
-  - build
-  - deploy
-
-include:
-  - template: Jobs/Build.gitlab-ci.yml
-  - template: Jobs/Deploy.gitlab-ci.yml
