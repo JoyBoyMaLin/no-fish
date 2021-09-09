@@ -1,0 +1,7 @@
+deploy_fish:
+  stage: deploy
+  script:
+    - echo "Deploy to fish server"
+  environment:
+    name: fish
+    url: https://fish.hundunlin.com
