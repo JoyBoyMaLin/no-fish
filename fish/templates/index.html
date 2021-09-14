@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}首页{% endblock %}
 {#{% block slider %}#}
 {#    <div class="gray-bg">#}
@@ -21,7 +22,7 @@
                         <a href="photo.html?category_id={{ category.id }}">
                             <article class="post">
                                 <div class="post-thumbnail">
-                                    <img src="{{ category.cover }}" alt=""
+                                    <img src="{% static  category.cover.url %}" alt=""
                                          href="photo.html?category_id={{ category.id }}">
                                 </div>
                             </article>

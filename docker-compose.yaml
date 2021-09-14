@@ -15,7 +15,7 @@ services:
     env_file:
       - .env
     command:
-      - /start_dev.sh
+      - /start.sh
   worker:
     <<: *api
     command:
