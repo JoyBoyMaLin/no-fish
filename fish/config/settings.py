@@ -212,7 +212,7 @@ CACHES = {
         # 连接Redis数据库(服务器地址)
         # 一主带多从(可以配置个Redis，写走第一台，读走其他的机器)
         'LOCATION': [
-            'redis://localhost:6379/0',
+            env('FISH_REDIS_URL'),
         ],
         'KEY_PREFIX': 'milky',  # 项目名当做文件前缀
         'OPTIONS': {
