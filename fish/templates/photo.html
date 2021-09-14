@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}分类{% endblock %}
 {% block content %}
     <div class="basic-breadcrumb-area gray-bg ptb-70">
@@ -21,9 +22,9 @@
                     <div class="portfolio-item">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-thumb">
-                                <img src="{{ photo.cover }}" alt="">
+                                <img src="{% static  photo.cover.url %}" alt="">
                                 <div class="view-icon">
-                                    <a class="popup-link" href="{{ photo.cover }}"><span
+                                    <a class="popup-link" href="{% static  photo.cover.url %}"><span
                                             class="icon-focus"></span></a>
                                 </div>
                             </div>

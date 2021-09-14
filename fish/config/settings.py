@@ -193,3 +193,14 @@ SIMPLEUI_HOME_ICON = 'fa fa-user'
 SIMPLEUI_INDEX = 'https://www.hundunlin.com'
 SIMPLEUI_STATIC_OFFLINE = True
 SIMPLEUI_LOADING = False
+
+# qcloud
+DEFAULT_FILE_STORAGE = 'django_storage_qcloud.storage.QcloudStorage'
+STATICFILES_STORAGE = 'django_storage_qcloud.storage.QcloudStorage'
+QCLOUD_STORAGE_OPTION = {
+    'SecretId': env('FISH_QCLOUD_SECRETID'),
+    'SecretKey': env('FISH_QCLOUD_SECRETKEY'),
+    'Region': env('FISH_QCLOUD_REGION'),
+    'Bucket': env('FISH_QCLOUD_BUCKET'),
+}
+COS_FAST_CDN = False  # 默认加速域名是否开启
