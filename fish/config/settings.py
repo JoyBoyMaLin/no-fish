@@ -34,6 +34,7 @@ ALLOWED_HOSTS = env.list('FISH_ALLOWED_HOST', default=[])
 
 INSTALLED_APPS = [
     'nested_inline',
+    'simpleui_captcha',
     'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -204,3 +205,21 @@ QCLOUD_STORAGE_OPTION = {
     'Bucket': env('FISH_QCLOUD_BUCKET'),
 }
 COS_FAST_CDN = False  # 默认加速域名是否开启
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',  # 缓存后端 Redis
+        # 连接Redis数据库(服务器地址)
+        # 一主带多从(可以配置个Redis，写走第一台，读走其他的机器)
+        'LOCATION': [
+            'redis://localhost:6379/0',
+        ],
+        'KEY_PREFIX': 'milky',  # 项目名当做文件前缀
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',  # 连接选项(默认，不改)
+            'CONNECTION_POOL_KWARGS': {
+                'max_connections': 512,  # 连接池的连接(最大连接)
+            },
+        }
+    }
+}

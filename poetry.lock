@@ -261,6 +261,54 @@ phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
 [[package]]
+name = "django-ranged-response"
+version = "0.2.0"
+description = "Modified Django FileResponse that adds Content-Range headers."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = "*"
+
+[[package]]
+name = "django-ratelimit"
+version = "3.0.1"
+description = "Cache-based rate-limiting for Django."
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[[package]]
+name = "django-redis"
+version = "5.0.0"
+description = "Full featured redis cache backend for Django."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Django = ">=2.2"
+redis = ">=3.0.0"
+
+[[package]]
+name = "django-simple-captcha"
+version = "0.5.14"
+description = "A very simple, yet powerful, Django captcha application"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=2.2"
+django-ranged-response = "0.2.0"
+Pillow = ">=6.2.0"
+six = ">=1.2.0"
+
+[package.extras]
+test = ["testfixtures"]
+
+[[package]]
 name = "django-simpleui"
 version = "2021.8.17"
 description = "django admin theme 后台模板"
@@ -270,6 +318,18 @@ python-versions = "*"
 
 [package.dependencies]
 django = "*"
+
+[[package]]
+name = "django-simpleui-captcha"
+version = "0.1.2"
+description = "simpleui_captcha is a django admin captcha packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Django = ">=3.0"
+django-simple-captcha = ">=0.5.14"
 
 [[package]]
 name = "django-storage-qcloud"
@@ -567,6 +627,17 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
+name = "redis"
+version = "3.5.3"
+description = "Python client for Redis key-value store"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.extras]
+hiredis = ["hiredis (>=0.1.3)"]
+
+[[package]]
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
@@ -654,7 +725,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0a1eca0a7e0fdda6d0e89e0f6d8880cee2ae70c338a3f1435617ade402ae011f"
+content-hash = "21c40e59a848ae6e7527bb0f4a28964dce8be4970d5b7261d1fff5ff421f5df9"
 
 [metadata.files]
 amqp = [
@@ -740,8 +811,27 @@ django-phonenumber-field = [
     {file = "django-phonenumber-field-5.2.0.tar.gz", hash = "sha256:52b2e5970133ec5ab701218b802f7ab237229854dc95fd239b7e9e77dc43731d"},
     {file = "django_phonenumber_field-5.2.0-py3-none-any.whl", hash = "sha256:5547fb2b2cc690a306ba77a5038419afc8fa8298a486fb7895008e9067cc7e75"},
 ]
+django-ranged-response = [
+    {file = "django-ranged-response-0.2.0.tar.gz", hash = "sha256:f71fff352a37316b9bead717fc76e4ddd6c9b99c4680cdf4783b9755af1cf985"},
+]
+django-ratelimit = [
+    {file = "django-ratelimit-3.0.1.tar.gz", hash = "sha256:73223d860abd5c5d7b9a807fabb39a6220068129b514be8d78044b52607ab154"},
+    {file = "django_ratelimit-3.0.1-py2.py3-none-any.whl", hash = "sha256:857e797f23de948b204a31dba9d88aea3ce731b7a5d926d0240c772e19b5486f"},
+]
+django-redis = [
+    {file = "django-redis-5.0.0.tar.gz", hash = "sha256:048f665bbe27f8ff2edebae6aa9c534ab137f1e8fa7234147ef470df3f3aa9b8"},
+    {file = "django_redis-5.0.0-py3-none-any.whl", hash = "sha256:97739ca9de3f964c51412d1d7d8aecdfd86737bb197fce6e1ff12620c63c97ee"},
+]
+django-simple-captcha = [
+    {file = "django-simple-captcha-0.5.14.zip", hash = "sha256:84b5c188e6ae50e9ecec5e5d734c5bc4d2a50fbbca7f59d2c12da9a3bbee5051"},
+    {file = "django_simple_captcha-0.5.14-py3.7.egg", hash = "sha256:1bb2c842bde3ae0e23ce3c84b2f07f608b660c8d18201b0812571bccf38cf867"},
+]
 django-simpleui = [
     {file = "django-simpleui-2021.8.17.tar.gz", hash = "sha256:4ab6850d44aba9d1ce37a8d4e4d3ac1a8dd118d541d471b685b8f41340cea87b"},
+]
+django-simpleui-captcha = [
+    {file = "django-simpleui-captcha-0.1.2.tar.gz", hash = "sha256:73ac25e5a6122b558c342b6ee29e15a56c01747475a931b25bf2b8b3a74058da"},
+    {file = "django_simpleui_captcha-0.1.2-py3-none-any.whl", hash = "sha256:415483b4d37d523486649d8b059e9cea3045d7a614a08f936bee1826f4971caf"},
 ]
 django-storage-qcloud = [
     {file = "django-storage-qcloud-0.2.1.tar.gz", hash = "sha256:3e0fbdbff3fa3c2f2f54b24d30927eedebd9156121a4501b59ffc4aea448388f"},
@@ -941,6 +1031,10 @@ pytz = [
 pytzdata = [
     {file = "pytzdata-2020.1-py2.py3-none-any.whl", hash = "sha256:e1e14750bcf95016381e4d472bad004eef710f2d6417240904070b3d6654485f"},
     {file = "pytzdata-2020.1.tar.gz", hash = "sha256:3efa13b335a00a8de1d345ae41ec78dd11c9f8807f522d39850f2dd828681540"},
+]
+redis = [
+    {file = "redis-3.5.3-py2.py3-none-any.whl", hash = "sha256:432b788c4530cfe16d8d943a09d40ca6c16149727e4afe8c2c9d5580c59d9f24"},
+    {file = "redis-3.5.3.tar.gz", hash = "sha256:0e7e0cfca8660dea8b7d5cd8c4f6c5e29e11f31158c0b0ae91a397f00e5a05a2"},
 ]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},

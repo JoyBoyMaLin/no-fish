@@ -18,10 +18,13 @@ from django.contrib import admin
 
 from django.conf.urls.static import static
 from django.conf import settings
+from account import views
 
 urlpatterns = [
+    path('admin/login/', views.extend_admin_login),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('simpleui_captcha/', include('simpleui_captcha.urls')),
     path('', include('app.urls')),
 ]
 urlpatterns.extend(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))

@@ -23,6 +23,9 @@ django-nested-inline = "^0.4.4"
 celery = "^5.1.2"
 gunicorn = "^20.1.0"
 django-storage-qcloud = "^0.2.1"
+django-simpleui-captcha = "^0.1.2"
+django-ratelimit = "^3.0.1"
+django-redis = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 
