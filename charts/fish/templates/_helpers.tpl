@@ -32,7 +32,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
     fieldRef:
       fieldPath: status.podIP
 - name: CP_ALLOWED_HOSTS
-  value: '$(CP_ALLOWED_HOSTS),$(THIS_POD_IP),ocean-contract-proxy'
+  value: '$(CP_ALLOWED_HOSTS),$(THIS_POD_IP)'
 {{- end -}}
 
 

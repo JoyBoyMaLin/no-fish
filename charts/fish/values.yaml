@@ -1,6 +1,6 @@
 replicaCount: 1
 workerReplicaCount: 1
-
+beatReplicaCount: 1
 image:
   repository: registry.gitlab.com/jbml/no-fish
   tag: master
@@ -12,7 +12,7 @@ service:
   internalPort: 8000
 ingress:
   enabled: false
-  host: hundunlin.com
+  host: fish.hundunlin.com
   path: /
   pathType: Prefix
   annotations:
@@ -20,8 +20,6 @@ ingress:
   tls:
     - secretName: secret-fish-tls
       hosts:
-        - hundunlin.com
-        - www.hundunlin.com
         - fish.hundunlin.com
 resources: { }
 stat: { }

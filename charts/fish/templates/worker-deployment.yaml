@@ -9,7 +9,7 @@ spec:
     matchLabels:
       app: {{ template "name" . }}-worker
       release: {{ .Release.Name }}
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.workerReplicaCount }}
   strategy:
     rollingUpdate:
       maxSurge: "25%"
