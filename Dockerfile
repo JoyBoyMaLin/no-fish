@@ -22,7 +22,7 @@ RUN chmod +x /*.sh
 RUN chown hundun:hundun /*.sh
 
 COPY fish /fish
-RUN chown hundun:hundun /fish
+RUN chown -R hundun:hundun /fish
 
 USER hundun
 
